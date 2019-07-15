@@ -43,7 +43,7 @@ Creates and tracks device changes a remote device (cloud).
 				       knot_callback_t pool_cb);
 
 :Return:
-   Return the virtual representation ``knot_proxy``. 
+   Return the virtual representation ``knot_proxy``.
 
 :Parameters:
    - ``id``: Sensor/Actuator ID.
@@ -133,3 +133,15 @@ Proxy helpers to set or get sensor data at the remote.
                    void *value);
    bool knot_proxy_value_get_string(struct knot_proxy *proxy,
                    char *value, int len, int *olen);
+
+:Return:
+   Returns ``True`` if the function succeed. ``False`` otherwise.
+
+:Parameters:
+   - ``proxy``: A knot_proxy representing a Sensor/Actuator.
+   - ``value``: For basic type the value can be a int value, float value or bool value. For string type the value should be a string.
+   - ``len (for string only)``: The actual size of the string.
+   - ``olen (for get string only)``: The address of a variable to save the size of the string.
+
+For more details please look the `apps folder <https://github.com/CESARBR/zephyr-knot-sdk/tree/master/apps>`_ on knot-zephyr-sdk repository.
+A exemple using bool can be visualized at hello-dongle sample and a exemple using string can be visualized at plate sample.
