@@ -12,7 +12,7 @@ It lights an LED for 1 second when the sensor is triggered.
 Requirements
 ------------
 
-The demo assumes that a digital output is connected to pin 0.10.
+The demo assumes that a digital output is connected to pin 1.10.
 
 ----------------------------------------------------------------
 
