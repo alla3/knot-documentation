@@ -72,7 +72,7 @@ KNoT uses a fork of Zephyr repository.
 nRF5x Command Line Tools and Segger JLink
 -----------------------------------------
 
-- Download and extract cli applications at `nRF5 Command Line Tools <https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF5-Command-Line-Tools>`_.
+- Download and extract cli applications at `nRF5 Command Line Tools <https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1021Linuxamd64tar.gz>`_.
 
 - Install nRF5x Command Line and Segger JLink deb package:
 
