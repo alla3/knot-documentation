@@ -135,7 +135,7 @@ Download and extract cli applications at `nRF5 Command Line Tools <https://www.n
 
    tar -xvzf $HOME/Downloads/nRFCommandLineTools1021tar.gz -C $HOME/Downloads --one-top-level
 
-- Install nRF5x Command Line and Segger JLink deb package:
+- Install nRF5x Command Line and Segger JLink deb package.
 
 .. code-block:: bash
 
@@ -180,11 +180,11 @@ Add support to the KNoT command line interface
 
 .. note:: This will allow you to call the knot command line interface from any folder.
 
-- Use pip to install cli requirements
+- Use pip to install cli requirements.
 
 .. code-block:: bash
 
-   pip3 install --user -r ${KNOT_BASE}/scripts/requirements.txt
+   pip3 install --user -r $KNOT_BASE/scripts/requirements.txt
 
 .. note:: If you skip this step, it will be necessary to manually source knot-env.sh every time a new terminal is opened.
 
