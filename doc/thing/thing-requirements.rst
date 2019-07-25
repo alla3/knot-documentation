@@ -46,10 +46,10 @@ Install Requirements and Dependencies
 
 .. code-block:: bash
 
-   $ mkdir $HOME/bin/cmake && cd $HOME/bin/cmake
-   wget https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.sh
-   yes | sh cmake-3.13.1-Linux-x86_64.sh | cat
-   echo "export PATH=$PWD/cmake-3.13.1-Linux-x86_64/bin:\$PATH" >> $HOME/.zephyrrc
+   $ mkdir -p $HOME/bin/cmake && cd $HOME/bin/cmake && \
+   wget https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.sh && \
+   yes | sh cmake-3.13.1-Linux-x86_64.sh | cat && \
+   echo "export PATH=$HOME/bin/cmake/cmake-3.13.1-Linux-x86_64/bin:\$PATH" >> $HOME/.zephyrrc
 
 .. note:: CMake version 3.13.1 or higher is required.
 
@@ -95,8 +95,8 @@ Install the Zephyr SDK
 - Initialize west.
 
 .. code-block:: bash
-
-   $ west init -l $HOME/zephyrproject/zephyr/
+   $ cd $HOME/zephyrproject/
+   $ west init -l zephyr/
    $ west update
 
 .. note:: If the system can't find west, try logging out and in again.
@@ -132,7 +132,7 @@ Download and extract cli applications at `nRF5 Command Line Tools <https://www.n
 
 .. code-block:: bash
 
-   $ tar -xvzf $HOME/Downloads/nRFCommandLineTools1021tar.gz -C $HOME/Downloads/nRFCommandLineTools1021tar
+   $ tar -xvzf $HOME/Downloads/nRFCommandLineTools1021tar.gz -C $HOME/Downloads --one-top-level
 
 - Install nRF5x Command Line and Segger JLink deb package:
 
