@@ -21,8 +21,8 @@ Update Your Operating System
 
 .. code-block:: bash
 
-   $ sudo apt update
-   $ sudo apt upgrade
+   sudo apt update
+   sudo apt upgrade
 
 Install Requirements and Dependencies
 '''''''''''''''''''''''''''''''''''''
@@ -31,25 +31,25 @@ Install Requirements and Dependencies
 
 .. code-block:: bash
 
-   $ sudo apt install --no-install-recommends git ninja-build gperf \
-   ccache dfu-util device-tree-compiler wget \
-   python3-pip python3-setuptools python3-tk python3-wheel xz-utils file \
-   make gcc gcc-multilib
+   sudo apt install --no-install-recommends git ninja-build gperf \
+        ccache dfu-util device-tree-compiler wget \
+        python3-pip python3-setuptools python3-tk python3-wheel xz-utils file \
+        make gcc gcc-multilib
 
 - Install dependencies for building OpenThread and KNoT Protocol.
 
 .. code-block:: bash
 
-   $ sudo apt install autoconf automake libtool
+   sudo apt install autoconf automake libtool
 
 - Install CMake v3.13.1.
 
 .. code-block:: bash
 
-   $ mkdir -p $HOME/bin/cmake && cd $HOME/bin/cmake && \
-   wget https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.sh && \
-   yes | sh cmake-3.13.1-Linux-x86_64.sh | cat && \
-   echo "export PATH=$HOME/bin/cmake/cmake-3.13.1-Linux-x86_64/bin:\$PATH" >> $HOME/.zephyrrc
+   mkdir -p $HOME/bin/cmake && cd $HOME/bin/cmake && \
+        wget https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.sh && \
+        es | sh cmake-3.13.1-Linux-x86_64.sh | cat && \
+        echo "export PATH=$HOME/bin/cmake/cmake-3.13.1-Linux-x86_64/bin:\$PATH" >> $HOME/.zephyrrc
 
 .. note:: CMake version 3.13.1 or higher is required.
 
@@ -60,44 +60,44 @@ Install the Zephyr SDK
 
 .. code-block:: bash
 
-   $ wget -O $HOME/Downloads/zephyr-sdk-0.10.0-setup.run https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run
-   $ chmod +x $HOME/Downloads/zephyr-sdk-0.10.0-setup.run
-   $ $HOME/Downloads/zephyr-sdk-0.10.0-setup.run -- -d ~/zephyr-sdk-0.10.0
+   wget -O $HOME/Downloads/zephyr-sdk-0.10.0-setup.run https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run
+   chmod +x $HOME/Downloads/zephyr-sdk-0.10.0-setup.run
+   $HOME/Downloads/zephyr-sdk-0.10.0-setup.run -- -d ~/zephyr-sdk-0.10.0
 
 - Program the ``$HOME/.profile`` to always set **ZEPHYR_TOOLCHAIN_VARIANT** and **ZEPHYR_SDK_INSTALL_DIR**.
 
 .. code-block:: bash
 
-   $ echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.profile
-   $ echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.10.0" >> $HOME/.profile
+   echo "export ZEPHYR_TOOLCHAIN_VARIANT=zephyr" >> $HOME/.profile
+   echo "export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.10.0" >> $HOME/.profile
 
 - If you do not have ``~/.local/bin`` on your PATH environment variable, add it.
 
 .. code-block:: bash
 
-   $ echo PATH=\"$HOME/.local/bin:'$PATH'\" >> $HOME/.profile
-   $ source $HOME/.profile
+   echo PATH=\"$HOME/.local/bin:'$PATH'\" >> $HOME/.profile
+   source $HOME/.profile
 
 - Install the west binary and bootstrapper.
 
 .. code-block:: bash
 
-   $ pip3 install --user west
+   pip3 install --user west
 
 - Clone KNoT Zephyr fork.
 
 .. code-block:: bash
 
-   $ git clone -b zephyr-knot-v1.14.0 https://github.com/CESARBR/zephyr.git $HOME/zephyrproject/zephyr/
+   git clone -b zephyr-knot-v1.14.0 https://github.com/CESARBR/zephyr.git $HOME/zephyrproject/zephyr/
 
 .. note:: It will create a folder under $HOME directory and clone zephyr inside it. Make sure to update the path on the following steps if you clone it under another folder.
 
 - Initialize west.
 
 .. code-block:: bash
-   $ cd $HOME/zephyrproject/
-   $ west init -l zephyr/
-   $ west update
+   cd $HOME/zephyrproject/
+   west init -l zephyr/
+   west update
 
 .. note:: If the system can't find west, try logging out and in again.
 
@@ -105,13 +105,13 @@ Install the Zephyr SDK
 
 .. code-block:: bash
 
-   $ source $HOME/zephyrproject/zephyr/zephyr-env.sh
+   source $HOME/zephyrproject/zephyr/zephyr-env.sh
 
 - Program the ``$HOME/.profile`` to always source zephyr-env.sh when you log in.
 
 .. code-block:: bash
 
-   $ echo "source $HOME/zephyrproject/zephyr/zephyr-env.sh" >> $HOME/.profile
+   echo "source $HOME/zephyrproject/zephyr/zephyr-env.sh" >> $HOME/.profile
 
 .. note:: If you skip this step, it will be necessary to manually source zephyr-env.sh every time a new terminal is opened.
 
@@ -126,20 +126,20 @@ Download and extract cli applications at `nRF5 Command Line Tools <https://www.n
 
 .. code-block:: bash
 
-   $ wget -O $HOME/Downloads/nRFCommandLineTools1021tar.gz https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1021Linuxamd64tar.gz
+   wget -O $HOME/Downloads/nRFCommandLineTools1021tar.gz https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1021Linuxamd64tar.gz
 
 - Extract nRF5 Command Line Tools.
 
 .. code-block:: bash
 
-   $ tar -xvzf $HOME/Downloads/nRFCommandLineTools1021tar.gz -C $HOME/Downloads --one-top-level
+   tar -xvzf $HOME/Downloads/nRFCommandLineTools1021tar.gz -C $HOME/Downloads --one-top-level
 
 - Install nRF5x Command Line and Segger JLink deb package:
 
 .. code-block:: bash
 
-   $ sudo dpkg -i $HOME/Downloads/nRFCommandLineTools1021tar/nRF-Command-Line-Tools_10_2_1_Linux-amd64.deb
-   $ sudo dpkg -i $HOME/Downloads/nRFCommandLineTools1021tar/JLink_Linux_V644e_x86_64.deb
+   sudo dpkg -i $HOME/Downloads/nRFCommandLineTools1021tar/nRF-Command-Line-Tools_10_2_1_Linux-amd64.deb
+   sudo dpkg -i $HOME/Downloads/nRFCommandLineTools1021tar/JLink_Linux_V644e_x86_64.deb
 
 ----------------------------------------------------------------
 
@@ -150,7 +150,7 @@ Source KNoT environment configuration file
 
 .. code-block:: bash
 
-   $ git clone https://github.com/cesarbr/zephyr-knot-sdk/ $HOME/zephyr-knot-sdk/
+   git clone https://github.com/cesarbr/zephyr-knot-sdk/ $HOME/zephyr-knot-sdk/
 
 .. note:: It will clone under $HOME directory. Make sure to update the path on the following steps if you create it under another folder.
 
@@ -158,13 +158,13 @@ Source KNoT environment configuration file
 
 .. code-block:: bash
 
-   $ source $HOME/zephyr-knot-sdk/knot-env.sh
+   source $HOME/zephyr-knot-sdk/knot-env.sh
 
 - Program the ``$HOME/.profile`` to always source knot-env.sh when you log in.
 
 .. code-block:: bash
 
-   $ echo "source $HOME/zephyr-knot-sdk/knot-env.sh" >> $HOME/.profile
+   echo "source $HOME/zephyr-knot-sdk/knot-env.sh" >> $HOME/.profile
 
 ----------------------------------------------------------------
 
@@ -175,7 +175,7 @@ Add support to the KNoT command line interface
 
 .. code-block:: bash
 
-   $ ln -s $KNOT_BASE/scripts/cli.py $HOME/.local/bin/knot
+   ln -s $KNOT_BASE/scripts/cli.py $HOME/.local/bin/knot
 
 .. note:: This will allow you to call the knot command line interface from any folder.
 
@@ -183,7 +183,7 @@ Add support to the KNoT command line interface
 
 .. code-block:: bash
 
-   $ pip3 install --user -r ${KNOT_BASE}/scripts/requirements.txt
+   pip3 install --user -r ${KNOT_BASE}/scripts/requirements.txt
 
 .. note:: If you skip this step, it will be necessary to manually source knot-env.sh every time a new terminal is opened.
 
@@ -196,7 +196,7 @@ Add USB access to your user
 
 .. code-block:: bash
 
-   $ sudo usermod -a -G dialout `whoami`
+   sudo usermod -a -G dialout `whoami`
 
 ----------------------------------------------------------------
 
@@ -207,4 +207,4 @@ Apply changes to profile
 
 .. code-block:: bash
 
-   $ reboot
+   reboot
