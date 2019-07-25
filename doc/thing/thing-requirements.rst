@@ -48,7 +48,7 @@ Install Requirements and Dependencies
 
    mkdir -p $HOME/bin/cmake && cd $HOME/bin/cmake && \
         wget https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1-Linux-x86_64.sh && \
-        es | sh cmake-3.13.1-Linux-x86_64.sh | cat && \
+        yes | sh cmake-3.13.1-Linux-x86_64.sh | cat && \
         echo "export PATH=$HOME/bin/cmake/cmake-3.13.1-Linux-x86_64/bin:\$PATH" >> $HOME/.zephyrrc
 
 .. note:: CMake version 3.13.1 or higher is required.
@@ -60,9 +60,9 @@ Install the Zephyr SDK
 
 .. code-block:: bash
 
-   wget -O $HOME/Downloads/zephyr-sdk-0.10.0-setup.run https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run
-   chmod +x $HOME/Downloads/zephyr-sdk-0.10.0-setup.run
-   $HOME/Downloads/zephyr-sdk-0.10.0-setup.run -- -d ~/zephyr-sdk-0.10.0
+   wget -O $HOME/Downloads/zephyr-sdk-0.10.0-setup.run https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run && \
+        chmod +x $HOME/Downloads/zephyr-sdk-0.10.0-setup.run  && \
+        $HOME/Downloads/zephyr-sdk-0.10.0-setup.run -- -d ~/zephyr-sdk-0.10.0
 
 - Program the ``$HOME/.profile`` to always set **ZEPHYR_TOOLCHAIN_VARIANT** and **ZEPHYR_SDK_INSTALL_DIR**.
 
@@ -95,6 +95,7 @@ Install the Zephyr SDK
 - Initialize west.
 
 .. code-block:: bash
+
    cd $HOME/zephyrproject/
    west init -l zephyr/
    west update
